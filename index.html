@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<title>教师节节快乐</title>
+		<meta charset='utf-8'/>
+		<style>
+			*{
+				margin:0;padding: 0;
+				background-image: url("./bj.jpg");
+				background-repeat: no-repeat;
+			}
+			.main{
+				width:100%;
+				height: 100%;
+			}
+			#boxes{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content:space-between;
+			}
+			#carousel{
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+			}
+			img{
+				display:inline-block;
+				position:relative;
+				left:268px;
+				width: 464px;
+			}
+			#div1,#div2,#div3,#div4,#div5{
+				width:100px;
+				height:100px;
+				position:relative;
+				top:-115;
+				display:inline-block;
+				border-radius:50%;
+				text-align:center;
+				line-height:100px;
+				font-family:'黑体';
+				font-size:30px;
+			}
+			#div1{
+				border:3px solid red;
+				color:red;
+			}
+			#div2{
+				border:3px solid orange;
+				color:orange;
+			}
+			#div3{
+				border:3px solid blue;
+				color:blue;
+			}
+			#div4{
+				border:3px solid green;
+				color:green;
+			}
+			#div5{
+				border:3px solid indigo;
+				color:indigo;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='main'>
+			<div id="boxes">
+				<div id='div1' name="aa">教</div>
+				<div id="div2" name="bb">师</div>
+				<div id="div3" name="cc">节</div>
+				<div id="div4" name="dd">快</div>
+				<div id="div5" name="ee">乐</div>
+			</div>
+			<div id="carousel">
+				<div id="tabpic">
+					<div style="display:block;">
+						<img src="./3.png" class="img3" />
+					</div>
+					<div style="display:none;">
+						<img src="./2.png" class="img2"/>
+					</div>
+					<div style="display:none;">
+						<img src="./1.png" class="img1"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var boxes = document.getElementById("boxes");
+			var tabPicArr=document.getElementById("tabpic").getElementsByTagName("div");
+			var carousel = document.getElementById("carousel");
+			
+			var aa = document.getElementsByName("aa")[0];
+			var bb = document.getElementsByName("bb")[0];
+			var cc = document.getElementsByName("cc")[0];
+			var dd = document.getElementsByName("dd")[0];
+			var ee = document.getElementsByName("ee")[0];
+			
+			function div_tab(tabName){
+				for(var i=0;i<tabPicArr.length;i++){
+		            if(i==tabName){
+		                tabPicArr[i].style.display="block";
+		            } else{
+		                tabPicArr[i].style.display="none";
+		            }
+		        }
+			}
+
+			var i=1;
+		    function auto_tab_div(){
+				//如果切换到最后一张图片，轮播图结束，隐藏所有图片
+				if(i>2){
+					carousel.style.display="none";
+				}
+				//每秒自动获取下一張图片
+				div_tab(i);
+				i++;
+		    }
+
+		    var interval = setInterval("auto_tab_div()",1000);
+		    // setInterval("auto_tab_div()",1000);
+		    interval = setInterval("auto_tab_div()",1000);
+		    window.clearInterval(interval );//停止
+			
+			//等待轮播图播放完之后执行myFunction()方法
+			window.onload = startFunction;
+			function startFunction(){
+				setTimeout(function(){
+					myFunction();
+				},3000);
+			}
+			
+			function myFunction(){
+				aa.style.position="relative";
+				aa.style.top="100px";
+				aa.style.transition="all 3s ease";
+				
+				bb.style.position="relative";
+				bb.style.top="100px";
+				bb.style.transition="all 4s ease";
+				
+				cc.style.position="relative";
+				cc.style.top="100px";
+				cc.style.transition="all 2s ease";
+				
+				dd.style.position="relative";
+				dd.style.top="100px";
+				dd.style.transition="all 1.5s ease";
+				
+				ee.style.position="relative";
+				ee.style.top="100px";
+				ee.style.transition="all 2.5s ease";
+			}
+		</script>
+	</body>
+</html>
