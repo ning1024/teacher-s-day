@@ -1,16 +1,14 @@
 <html>
 	<head>
-		<title>教师节节快乐</title>
+		<title>教师节快乐</title>
 		<meta charset='utf-8'/>
 		<style>
 			*{
 				margin:0;padding: 0;
-				background-repeat: no-repeat;
 			}
 			.main{
 				width:100%;
 				height: 100%;
-				background-image: url("./bj.jpg");
 			}
 			#boxes{
 				position: absolute;
@@ -66,7 +64,7 @@
 		</style>
 	</head>
 	<body>
-		<div class='main'>
+		<div class='main' name="main">
 			<div id="boxes">
 				<div id='div1' name="aa">教</div>
 				<div id="div2" name="bb">师</div>
@@ -98,6 +96,7 @@
 			var cc = document.getElementsByName("cc")[0];
 			var dd = document.getElementsByName("dd")[0];
 			var ee = document.getElementsByName("ee")[0];
+			var main = document.getElementsByName("main")[0];
 			
 			function div_tab(tabName){
 				for(var i=0;i<tabPicArr.length;i++){
@@ -134,6 +133,9 @@
 			}
 			
 			function myFunction(){
+				main.style.background="url('./bj.jpg')";
+				main.style.backgroundRepeat= 'repeat-y';
+
 				aa.style.position="relative";
 				aa.style.top="100px";
 				aa.style.transition="all 3s ease";
